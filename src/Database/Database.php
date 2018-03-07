@@ -15,21 +15,18 @@ final class Database
 	private function getDatabaseConnection($connection)
 	{
 		if ( null === $connection ) {
-			if ($connection instanceof MySQLDatabaseConnection)
-			// You can have arbitrary logic in here to decide what
-			// implementation to use.
+            //Por defecto recoge una conexion a MySQL
 			$connection = new MySQLDatabaseConnection();
-		}
+		} else {
+            if ($connection instanceof MySQLDatabaseConnection)
+            {
+                $connection = new MySQLDatabaseConnection();
+            }
+        }
 
 		return $connection;
 	}
 }
-
- /***PARA CONSUMIR EL CODIGO DE ARRIBA
- * $database = ( new Database )->get_connection();
- * $result   = $database->query( $query );
- ****************************************/
-
 
 /*
 class Database
