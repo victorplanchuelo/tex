@@ -8,6 +8,6 @@ use TelefonoEroticoX\Database\Database;
 require '../vendor/autoload.php';
 
 $database = ( new Database )->get_connection();
-$result   = $database->query( "HOLAAAA", array() );
+$result   = $database->query( "SELECT * FROM users WHERE id = :id", array(':id' => 1) );
 
-echo $result;
+var_dump($result);
